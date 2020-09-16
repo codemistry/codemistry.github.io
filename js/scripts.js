@@ -230,7 +230,7 @@
             var message = $("#cmessage").val();
             var data = [name, email, message];
             var $form = $(this);
-            $.post($form.attr("action"), data.serialize()).then(function () {
+            $.post($form.attr("action"), data.serializeArray()).then(function () {
                 cformSuccess();
             });
         }
