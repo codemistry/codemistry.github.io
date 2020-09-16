@@ -225,12 +225,9 @@
         } else {
             // everything looks good!
             event.preventDefault();
-            var name = $("#cname").val();
-            var email = $("#cemail").val();
-            var message = $("#cmessage").val();
-            var data = [name, email, message];
+
             var $form = $(this);
-            $.post($form.attr("action"), data.serializeArray()).then(function () {
+            $.post($form.attr("action"), $form.serializeArray()).then(function () {
                 cformSuccess();
             });
         }
