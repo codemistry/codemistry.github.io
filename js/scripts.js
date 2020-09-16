@@ -228,8 +228,9 @@
             var name = $("#cname").val();
             var email = $("#cemail").val();
             var message = $("#cmessage").val();
-            var $form = [name, email, message];
-            $.post($form.attr("action"), $form.serialize()).then(function () {
+            var data = [name, email, message];
+            var $form = $(this);
+            $.post($form.attr("action"), data.serialize()).then(function () {
                 cformSuccess();
             });
         }
