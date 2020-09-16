@@ -225,14 +225,20 @@
         } else {
             // everything looks good!
             event.preventDefault();
-            var $form = $(this);
-            $.post($form.attr("action"), $form.serialize()).then(function () {
-                cformSuccess();
-            });
+            csubmitForm();
         }
     });
 
-
+    function csubmitForm() {
+        // initiate variables with form content
+        var name = $("#cname").val();
+        var email = $("#cemail").val();
+        var message = $("#cmessage").val();
+        var $form = [name, email, message];
+        $.post($form.attr("action"), $form.serialize()).then(function () {
+            cformSuccess();
+        });
+    }
 
     function cformSuccess() {
         $("#contactForm")[0].reset();
